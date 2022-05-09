@@ -1,0 +1,39 @@
+<odoo>
+  <record id='view_create_ticket_form' model="ir.ui.view">
+    <field name="name">view.create_ticket.form</field>
+    <field name="model">create.ticket</field>
+    <field name="arch" type="xml">
+      <form tring='Create Ticket'>
+       
+          <group name='main'>
+            <field name='name' />
+            <field name='tag_ids' />
+          </group>
+
+          <footer>
+            <button name='create_ticket' string='Create Ticket' type='object' data-hotkey='w'/>
+            <button string='Cancel' class='btn-secondary' special='cancel' data-hotkey="z"/>
+          </footer>
+         
+          
+        
+      </form>
+    </field>
+  </record>
+
+  <record id="create_ticket_action" model="ir.actions.act_window">
+    <field name="name">Create Ticket</field>
+    <field name="res_model">create.ticket</field>
+    <field name="view_mode">form</field>
+    <field name='target'>new</field>
+
+   <field name='binding_model_id' ref='helpdesk_gilberto.model_helpdesk_ticket_tags'/>
+   <field name="binding_view_types">list,form</field>
+  </record>
+  <menuitem id='create_ticket_menu' parent='helpdesk_config_menu' action='create_ticket_action' sequence="20"/>
+
+ 
+
+  
+  
+</odoo>
